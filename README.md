@@ -1,9 +1,18 @@
 # cortex-scikit-onnx-boston-housing
-This repository shows how to deploy a scikit model with [cortex](https://www.cortex.dev/) on AWS. The project only focuses on the deployment of the model. A simple *linear regression* was trained with [scikit-learn](https://scikit-learn.org/) framework on the [boston housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html). For more details take a look into [scikit-onnx-fastapi-example repository](https://github.com/naxty/scikit-onnx-fastapi-example). 
+This repository shows how to deploy a scikit-learn model with [cortex](https://www.cortex.dev/) on AWS. The project only focuses on the deployment of the model. A simple *linear regression* was trained with [scikit-learn](https://scikit-learn.org/) framework on the [boston housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html). For more details take a look into [scikit-onnx-fastapi-example repository](https://github.com/naxty/scikit-onnx-fastapi-example). 
 
+## Overview
+- [model](model): Contains an scikit-learn and converted ONNX model to predict boston housing prices.
+- [boston_handler.py](boston_handler.py): Cortex specific implementation to run pre- and post-inference.
+- [test.sh](test.sh): Script to test the application
 
-## 1. Scikit to ONNX conversion
-Firstly install the following into your python environnment:
+## How to run?
+You need a [docker](https://www.docker.com/) installation and access to an AWS environment where you can create a new USER with `AdministratorAccess` policy.
+
+The following steps show to setup the project from scratch. Just clone the repository and run each step. Skip directly to [2. cortex](#2-cortex) if you don't want to convert the model. A converted ONNX model is included in the [model](model) folder.
+
+## 1. Scikit to ONNX conversion (optional)
+Firstly install the following into your python environment:
 `pip install pandas sklearn sk2lonnx`
 
 ```
