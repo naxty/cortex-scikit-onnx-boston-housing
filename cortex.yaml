@@ -1,0 +1,7 @@
+- kind: deployment
+  name: boston-housing
+
+- kind: api
+  name: linear-regression
+  model: s3://cortex-07af1aa182/boston_housting/linear_regression.onnx
+  request_handler: boston_handler.py
